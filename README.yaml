@@ -1,0 +1,51 @@
+#
+# Canonical configuration for README.md (cloudposse-style doc standard,
+# native to Devotica). Run `make readme` to regenerate the terraform-docs
+# section of README.md.
+#
+
+name: terraform-aws-acm
+license: APACHE2
+github_repo: devotica-labs/terraform-aws-acm
+
+badges:
+  - name: CI
+    image: https://github.com/devotica-labs/terraform-aws-acm/actions/workflows/ci.yml/badge.svg
+    url: https://github.com/devotica-labs/terraform-aws-acm/actions/workflows/ci.yml
+  - name: Release
+    image: https://github.com/devotica-labs/terraform-aws-acm/actions/workflows/release.yml/badge.svg
+    url: https://github.com/devotica-labs/terraform-aws-acm/actions/workflows/release.yml
+  - name: License
+    image: https://img.shields.io/badge/License-Apache_2.0-blue.svg
+    url: LICENSE
+
+related:
+  - name: terraform-aws-alb
+    description: Public ALB that terminates TLS with a certificate from this module.
+    url: https://github.com/devotica-labs/terraform-aws-alb
+  - name: terraform-aws-wafv2
+    description: Edge Web ACL protecting the same ALB / CloudFront distribution.
+    url: https://github.com/devotica-labs/terraform-aws-wafv2
+
+description: |-
+  Terraform module for an **AWS ACM TLS certificate**, DNS-validated via
+  Route 53. Ships fintech-safe defaults — DNS validation (never EMAIL),
+  RSA_2048 key, and create_before_destroy on the certificate — and, when a
+  Route 53 zone id is supplied, writes the validation records and waits for
+  the certificate to be issued.
+
+introduction: |-
+  This module requests an [AWS ACM certificate](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html)
+  for a domain and any subject alternative names. When `zone_id` is set it
+  creates the Route 53 validation records and an
+  `aws_acm_certificate_validation` resource that blocks until ACM issues the
+  certificate, so downstream listeners depend on a fully-issued cert. When
+  `zone_id` is null it emits only the request plus the validation records the
+  caller must add out-of-band.
+
+usage: |-
+  See [`examples/basic`](examples/basic) for a single domain DNS-validated in a
+  Route 53 zone, and [`examples/complete`](examples/complete) for a wildcard
+  certificate with additional SANs.
+
+contributors: []
