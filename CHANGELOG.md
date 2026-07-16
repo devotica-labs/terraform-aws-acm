@@ -8,6 +8,19 @@ Releases are cut automatically by `release-please` on merge to `main`,
 driven by Conventional Commit prefixes (`feat:` → minor, `fix:`/`docs:`/`chore:` → patch,
 `feat!:`/`BREAKING CHANGE:` → major).
 
+## 0.1.0 (2026-07-16)
+
+
+### Features
+
+* **ci:** add architecture-diagram workflow + renderer ([24ad49d](https://github.com/devotica-labs/terraform-aws-acm/commit/24ad49d6bb821cbdbfb7a7b3dea3d473d46b4be2))
+* initial release of terraform-aws-acm ([9bfb75c](https://github.com/devotica-labs/terraform-aws-acm/commit/9bfb75ca1316c50226e09e95748fc86badb2da35))
+
+
+### Bug Fixes
+
+* **ci:** drop dead pip/scripts dependabot entry; tflint clean ([7b99565](https://github.com/devotica-labs/terraform-aws-acm/commit/7b9956592df26c6c0b650325b13e0e96fab5967a))
+
 ## [Unreleased]
 
 ### Added
